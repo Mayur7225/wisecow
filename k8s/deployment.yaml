@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wisecow-deployment
+  labels:
+    app: wisecow
+spec:
+  replicas: 2   # 2 pods run karenge
+  selector:
+    matchLabels:
+      app: wisecow
+  template:
+    metadata:
+      labels:
+        app: wisecow
+    spec:
+      containers:
+        - name: wisecow
+          image: mayur7225/wisecow:tls    
+          ports:
+            - containerPort: 4499
+          volumeMounts:
+            - name: certs
+              mountPath: /app/certs
+              readOnly: true
+      volumes:
+        - name: certs
+          secret:
+            secretName: wisecow-certs
+            items:
+              - key: tls.crt
+                path: wisecow.crt
+              - key: tls.key
+                path: wisecow.key
