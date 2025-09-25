@@ -26,3 +26,25 @@ Deploy the wisecow application as a k8s app
 1. Github repo containing the app with corresponding dockerfile, k8s manifest, any other artifacts needed.
 2. Github repo with corresponding github action.
 3. Github repo should be kept private and the access should be enabled for following github IDs: nyrahul
+
+
+## Problem Statement 2: Scripts
+
+### 1. System Health Monitoring
+- File: `scripts/system_health_monitor.py`
+- Checks CPU, Memory, Disk usage
+- Prints alerts if thresholds exceeded
+
+### 2. Application Health Checker
+- File: `scripts/app_health_checker.py`
+- Checks Wisecow app status (`up`/`down`) using HTTP(S) requests
+- Works with local Docker/Minikube containers
+
+### How to Run
+```bash
+# System Health Monitoring
+python3 scripts/system_health_monitor.py
+
+# Application Health Checker
+python3 scripts/app_health_checker.py
+
