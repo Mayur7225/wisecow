@@ -27,6 +27,42 @@ Deploy the wisecow application as a k8s app
 2. Github repo with corresponding github action.
 3. Github repo should be kept private and the access should be enabled for following github IDs: nyrahul
 
+## # Wisecow Application with TLS, Docker & Kubernetes
+
+## Project Overview
+Wisecow is a simple application demonstrating:
+- Containerization using **Docker**
+- Deployment on **Kubernetes** (Minikube / Kind)
+- Secure communication using **TLS**
+- CI/CD pipeline using **GitHub Actions**
+
+---
+
+## Tech Stack
+- Language: Node.js
+- Containerization: Docker
+- Orchestration: Kubernetes (Minikube / Kind)
+- CI/CD: GitHub Actions
+- TLS: Self-signed certificates
+
+---
+
+## CI/CD Pipeline
+The GitHub Actions workflow performs:
+1. Checkout repository
+2. Build Docker image
+3. Push Docker image to Docker Hub
+
+**Note:** Deployment to Kubernetes is manual (local Minikube/Kind cluster) as GitHub runners cannot run Minikube/Kind.
+
+---
+
+## Docker Usage
+
+### Build Image
+```bash
+docker build -t <your-dockerhub-username>/wisecow:tls .
+
 
 ## Problem Statement 2: Scripts
 
