@@ -35,17 +35,4 @@ jobs:
         run: |
           docker push mayur7225/wisecow:tls
 
-      # 6. Set up kubectl
-      - name: Set up kubectl
-        uses: azure/setup-kubectl@v3
-        with:
-          version: 'v1.34.0'
-
-      # 7. Deploy to Kubernetes (Minikube/Kind)
-      - name: Deploy to Kubernetes
-        env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
-        run: |
-          kubectl apply -f k8s/deployment.yaml
-          kubectl apply -f k8s/service.yaml
-
+      
