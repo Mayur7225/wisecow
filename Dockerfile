@@ -20,11 +20,6 @@ RUN apt-get update && \
 COPY wisecow.sh /app/wisecow.sh
 RUN chmod +x /app/wisecow.sh
 
-# Ensure permissions
-COPY certs /app/certs
-RUN chmod 644 /app/certs/wisecow.crt \
-    && chmod 600 /app/certs/wisecow.key
-
 # Expose TLS port
 EXPOSE 4499
 
